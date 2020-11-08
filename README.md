@@ -1,1 +1,1 @@
-# deia_smartways
+# deia_smartwayz project repository
