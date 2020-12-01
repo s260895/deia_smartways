@@ -29,7 +29,14 @@ def get_occupancy_prediction(line, modality, day,hour,source,destination,merged_
     for key in line_stop_dict.keys():
         line_stop_dict[key] = {stop.lower():num for (num,stop) in enumerate(line_stop_dict[key])}
 
-    #GET NUMBER OF SOURCE AND DESTINATION STOPS GIVEN
+    try:
+        #GET NUMBER OF SOURCE AND DESTINATION STOPS GIVEN
+        source_num = line_stop_dict[line][source]
+        dest_num = line_stop_dict[line][destination]
+    except:
+        return {'message': 'error', 'error': 'Please supply valid source and destination stops. For a list of valid values check source code'}
+
+
     source_num = line_stop_dict[line][source]
     dest_num = line_stop_dict[line][destination]
 
